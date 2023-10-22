@@ -1,9 +1,11 @@
-let userNames = [];
-let myInterval;
-let scrollElement;
+//vars
+let sdcolor = "#990000"; //server drop color
+let udcolor = "#186321"; //user drop color
+let wlcolor = "#8a33cc"; //wishlist color
+const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128';
 let msLockTime = 10000;
 
-const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128';
+//wishlist data
 const wlJsonURL = chrome.runtime.getURL('assets/wldata.json');
 let wlData;
 fetchData();
@@ -15,18 +17,15 @@ async function fetchData(){
     }); 
 }
 
-let sdcolor = "#990000";
-let udcolor = "#186321";
-let wlcolor = "#8a33cc";
-
-const nameChars = " 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-const titleChars = " '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!/"
-const printChars = "-0123456789";
-
 MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 const config = { childList: true };
 let scrollLock = false;
 let released = true;
+
+//worker 
+const nameChars = " 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const titleChars = " '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!/"
+const printChars = "-0123456789";
 
 async function createWorker(scheduler, type) {
     const worker = await Tesseract.createWorker("eng", 1, {
@@ -165,7 +164,6 @@ function getWishlist(name, title){
     let bestMatch = -1;
     let bestIndex = -1;
 
-    const time = Date.now();
     wlData.forEach((entry, index) =>{
         const newMatch = similarity(name, entry.name);
         if(newMatch>bestMatch){
