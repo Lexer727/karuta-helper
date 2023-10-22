@@ -3,8 +3,12 @@ let sdcolor = "#990000"; //server drop color
 let wpcolor = "#990000"; //high wishlist/ print message color
 let udcolor = "#186321"; //user drop color
 let wlcolor = "#8a33cc"; //wishlist color
-const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
+
+let stopScroll = true; //stop scroll on server/user drop
 let msLockTime = 10000; //scroll lock time in ms
+
+
+const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
 
 //
 //wishlist data
@@ -318,7 +322,7 @@ const observer = new MutationObserver(function(mutations, observer) {
     console.log("[Karuta Helper] New Message");
     mutations.forEach(mutation =>{
         mutation.addedNodes.forEach(addedMessage =>{
-            if(addedMessage?.nodeName === "LI"){
+            if(addedMessage?.nodeName === "LI" && stopScroll){
                 if(scrollLock){
                     scrollElement.scrollBy({top:-getAbsoluteHeight(addedMessage.firstChild), behavior:"instant"});
                     scrollLock = false;
