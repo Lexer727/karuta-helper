@@ -1,5 +1,6 @@
 //vars
 let sdcolor = "#990000"; //server drop color
+let wpcolor = "#990000"; //high wishlist/ print message color
 let udcolor = "#186321"; //user drop color
 let wlcolor = "#8a33cc"; //wishlist color
 const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
@@ -118,7 +119,7 @@ function getData(image, target){
 
 
         const nameNode = document.createElement("div");
-        nameNode.style.backgroundColor = "#990000";
+        nameNode.style.backgroundColor = wpcolor;
 
         for(var i = 0 ; i < results[0].length ; i++ ){
             var div = document.createElement("div");
