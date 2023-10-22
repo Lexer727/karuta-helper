@@ -2,9 +2,10 @@
 let sdcolor = "#990000"; //server drop color
 let udcolor = "#186321"; //user drop color
 let wlcolor = "#8a33cc"; //wishlist color
-const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128';
-let msLockTime = 10000;
+const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
+let msLockTime = 10000; //scroll lock time in ms
 
+//
 //wishlist data
 const wlJsonURL = chrome.runtime.getURL('assets/wldata.json');
 let wlData;
@@ -129,12 +130,12 @@ function getData(image, target){
             const print = getPrint(results[2][i]);
             const edition = getEdition(results[2][i]);
 
-            //console.log("[Karuta Helper] Name:", results[0][i],", Anime: ", results[1][i],", Print + Edition: ", results[2][i]," - WL: ", highWl,", Print: ", print,", Edition: ", edition);
+            console.log("[Karuta Helper] Recognized Card - Name:", results[0][i],", Anime: ", results[1][i],", Print + Edition: ", results[2][i]," - WL: ", highWl,", Print: ", print,", Edition: ", edition);
 
             let wlText = '';
             let printText = '';
             if(highWl){
-                wlText = " - High WISHLIST: " + highWl.name + ", " + highWl.wl;
+                wlText = " - HIGH WL: " + highWl.name + ", " + highWl.wl;
             }
             if(print<10){
                 printText = " - SINGLE PRINT: "+ print + ", Edition: "+ edition;
@@ -173,7 +174,7 @@ function getWishlist(name, title){
     });
     
     if(bestMatch > 0.85){
-        console.log("[Karuta Helper] Found Match of: ",name,"to: ",wlData[bestIndex].name,'similarity of:',bestMatch);
+        console.log("[Karuta Helper] Found Match of: ",name,"to: ",wlData[bestIndex].name,"from: ",wlData[bestIndex].anime,'- similarity of:',bestMatch);
         res = wlData[bestIndex];
     }
     return res;
