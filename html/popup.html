@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/aacss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../js/popup.js"></script>
+  </head>
+  <body>
+    <section class="content container">
+      <div class="flexrow">
+        <div class="innerContainer margin-b5">
+          <button class="button margin-b10 red" id="onOffToggle">
+            <i class="fa fa-power-off" id="powerbutton"></i>
+            <p class="text whitespace" id="statusText"></p>
+          </button>
+        </div>
+        <div class="innerContainer margin-b5">
+          <button class="button margin-b10" id="colorSelector">
+            <i class="fa fa-tint fa-lg padding-t6"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="border"></div>
+      <span class="margin-t10">Usernames:</span>
+      <div class="innerContainer margin-t5 ui-widget">
+        <input class="input" type="text" id="inputField" placeholder="" value=""><br>
+        <i id="addName" class="buttonP fa fa-plus-square fa-lg"></i>
+      </div>
+      <ol id="nameList">
+
+      </ol>
+    </section>
+  </body>
+</html>              

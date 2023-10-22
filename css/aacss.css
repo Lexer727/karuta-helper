@@ -1,0 +1,180 @@
+body{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: left;
+  background-color: #0c0c0c;
+  width: 370px;
+  overflow: visible;
+  overflow-x: hidden;
+  padding: 5px;
+}
+
+.content{
+  width: 360px;
+  background: #35363a;
+}
+
+ol{
+  padding-left:0; 
+  list-style-position:inside;
+}
+
+ol li{
+  list-style-type: none;
+}
+
+.border{
+  margin: auto;
+  width: 340px;
+  border-top: 2px solid #0c0c0c;
+}
+
+.flexrow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.button {
+  background-color: #202124;
+  color: white;
+  height: 40px;
+  width: 40px;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  border: none;
+  border-radius: 2px;
+ }
+
+ .buttonP{
+  padding-top: 3px;
+  padding-left: 3px;
+  cursor: pointer;
+ }
+
+ .buttonM{
+  padding-top: 3px;
+  padding-right: 3px;
+  cursor: pointer;
+ }
+
+.button:hover {
+  background-color: #4a4a4e;
+}
+
+.whitespace{
+  margin: 0;
+  white-space: pre;
+}
+
+#togglePassword{
+  color: #202124;
+  margin-left: -22px; 
+  cursor: pointer;
+}
+
+#togglePassword:hover{
+  color: #4a4a4e;
+}
+
+#kapToggle{
+  width: 30px;
+}
+#proxyToggle{
+  width: 30px;
+}
+
+.save{
+	margin-right: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.text{
+  margin: 0;
+}
+
+.innerContainer{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.projectName{
+  margin: 5px;
+  color: inherit;
+  text-decoration: none;
+}
+.input{
+  width: 200px;
+}
+#ltime{
+  width: 50px;
+}
+
+#lreward{
+  width: 30px;
+}
+
+#lproxy{
+    resize: none;
+}
+
+.margin-t10{
+  margin-top: 10px;
+}
+
+.padding-t6{
+  padding-top: 6px;
+}
+
+.margin-t5{
+  margin-top: 5px;
+}
+
+.margin-b10{
+  margin-bottom: 10px;
+}
+
+.margin-b5{
+  margin-bottom: 5px;
+}
+
+.margin-v10{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.margin-h5{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.margin-l5{
+  margin-left: 5px;
+}
+
+.margin-r5{
+  margin-right: 5px;
+}
+
+.margin-b-5{
+  margin-bottom: -5px;
+}
+
+.margin-0{
+  margin: 0;
+}
