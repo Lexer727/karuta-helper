@@ -140,7 +140,7 @@ function getData(image, target){
             let wlText = '';
             let printText = '';
             if(highWl){
-                wlText = " - HIGH WL: " + highWl.name + ", " + highWl.wl;
+                wlText = " - HIGH WL: " + highWl.wl + ", " + highWl.name + ", from: "+ highWl.anime;
             }
             if(print<10){
                 printText = " - SINGLE PRINT: "+ print + ", Edition: "+ edition;
