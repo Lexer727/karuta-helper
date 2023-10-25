@@ -7,6 +7,9 @@ let wlcolor = "#8a33cc"; //wishlist color
 let stopScroll = true; //stop scroll on server/user drop
 let msLockTime = 10000; //scroll lock time in ms
 
+const content = "contents_f41bb2";
+const scrollerInner = "scrollerInner__059a5";
+const scroller = "scroller__1f96e";
 
 const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
 
@@ -328,7 +331,7 @@ const observer = new MutationObserver(function(mutations, observer) {
                     scrollLock = false;
                 }
                 if(isKarutaMsg(addedMessage)){
-                    var node = addedMessage.firstChild.getElementsByClassName("contents-2MsGLg")[0].getElementsByTagName("div")[0];
+                    var node = addedMessage.firstChild.getElementsByClassName(content)[0].getElementsByTagName("div")[0];
                     if(markMessage(node, addedMessage)){
                         if(!scrollLock){
                             scrollElement.scrollBy({top:99999999999, behavior:"instant"});
@@ -354,7 +357,7 @@ const observer = new MutationObserver(function(mutations, observer) {
 
 function isKarutaMsg(message){
     var karutaImg = null;
-    var imgNodes = message?.firstChild?.getElementsByClassName("contents-2MsGLg")[0]?.getElementsByTagName("img");
+    var imgNodes = message?.firstChild?.getElementsByClassName(content)[0]?.getElementsByTagName("img");
     if(imgNodes){
         for(const node of imgNodes){
             if(node.src === botImg){
@@ -385,11 +388,11 @@ async function init(){
         }
         let chat;
         while(chat===undefined){
-            chat = document.getElementsByClassName("scrollerInner-2PPAp2")[0];
+            chat = document.getElementsByClassName(scrollerInner)[0];
             console.log("[Karuta Helper] Waiting for chat to load...");
             await delay(500);
         }
-        scrollElement = document.getElementsByClassName("scroller-kQBbkU")[0];
+        scrollElement = document.getElementsByClassName(scroller)[0];
 
         scrollElement.addEventListener("wheel", (event) => {
             if(!released){
@@ -411,7 +414,7 @@ function main(chat){
             var karutaImg = false;
 
             while(!imgFound){
-                var childNodes = messages[i]?.firstChild.getElementsByClassName("contents-2MsGLg")[0]?.childNodes;
+                var childNodes = messages[i]?.firstChild.getElementsByClassName(content)[0]?.childNodes;
                 if(!childNodes){
                     break;
                 }
