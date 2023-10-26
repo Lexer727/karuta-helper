@@ -10,12 +10,14 @@ let msLockTime = 10000; //scroll lock time in ms
 const content = "contents_f41bb2";
 const scrollerInner = "scrollerInner__059a5";
 const scroller = "scroller__1f96e";
+const placeHolderClassName = "imagePlaceholder__7e7ec";
 
 const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
 
 //
 //wishlist data
 const wlJsonURL = chrome.runtime.getURL('assets/wldata.json');
+let userNames = [];
 let wlData;
 fetchData();
 
@@ -269,17 +271,16 @@ async function recognize(arr, type){
     return results;
 }
 
-
 async function getImage(message){
-    const imgCol = message.firstChild.childNodes[1].firstChild.firstChild.firstChild.firstChild.firstChild.firstChild.childNodes[1];
-    if(imgCol.getElementsByTagName('img').length < 1){
+    const imgCol = message.firstChild.childNodes[1].firstChild.firstChild.firstChild.firstChild.firstChild.firstChild.childNodes[1].firstChild;
+    if(imgCol.firstChild.className === placeHolderClassName){
         const innerObserver = new MutationObserver(function(innerMutations, innerObserver) {
-                                getData(innerMutations[0].target.firstChild.currentSrc, innerMutations[0].target);
+                                getData(innerMutations[0].target.firstChild.currentSrc, innerMutations[0].target.parentElement);
                                 innerObserver.disconnect();
                             });
         innerObserver.observe(imgCol, config);
     }else{
-        getData(imgCol.getElementsByTagName('img')[0].currentSrc);
+        getData(imgCol.firstChild.currentSrcm, imgCol.parentElement);
     }
 }
 
