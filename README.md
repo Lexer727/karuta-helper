@@ -7,7 +7,7 @@
 - (buggy) displays text for single, low and high print
 
 ## Installation
-To install the extension either clone the repository or download the [latest release](https://github.com/Lexer727/karuta-helper/releases).  
+To install the extension clone the repository.  
 
 
 After that you have to:
