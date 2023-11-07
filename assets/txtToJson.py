@@ -1,9 +1,10 @@
 import json
 import os
 
-filename = 'wishlist.txt'
+filename = 'wishlistv2.txt'
 
-fields = ['wl', 'anime', 'name']
+# v1 wl anime name, v2 wl name anime
+fields = ['wl', 'name', 'anime']
 res = []
 
 with open(filename, 'r', encoding='utf-8-sig') as f:
