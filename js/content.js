@@ -12,7 +12,7 @@ const scrollerInner = "scrollerInner__059a5";
 const scroller = "scroller__1f96e";
 const placeHolderClassName = "imagePlaceholder__7e7ec";
 
-const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp?size=128'; //url of karuta bot image used to identify the bot
+const botImg = 'https://cdn.discordapp.com/avatars/646937666251915264/0e54d87446f106d1fd58385295ae9deb.webp'; //url of karuta bot image used to identify the bot
 
 //
 //wishlist data
@@ -183,7 +183,7 @@ function getWishlist(name, title){
         }
     });
     
-    if(bestMatch > 0.85){
+    if(bestMatch > 0.95){
         console.log("[Karuta Helper] Found Match of: ",name,"to: ",wlData[bestIndex].name,"from: ",wlData[bestIndex].anime,'- similarity of:',bestMatch);
         res = wlData[bestIndex];
     }
@@ -323,7 +323,6 @@ function markMessage(message, addedMessage){
 }
 
 const observer = new MutationObserver(function(mutations, observer) {  
-    console.log("[Karuta Helper] New Message");
     mutations.forEach(mutation =>{
         mutation.addedNodes.forEach(addedMessage =>{
             if(addedMessage?.nodeName === "LI" && stopScroll){
@@ -361,7 +360,7 @@ function isKarutaMsg(message){
     var imgNodes = message?.firstChild?.getElementsByClassName(content)[0]?.getElementsByTagName("img");
     if(imgNodes){
         for(const node of imgNodes){
-            if(node.src === botImg){
+            if(node.src.split('?')[0] === botImg){
                 karutaImg = true;
                 break;
             }else{
