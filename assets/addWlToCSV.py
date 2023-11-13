@@ -14,4 +14,4 @@ with open(wlfile, 'r', encoding='utf-8-sig') as f:
 
         df.loc[df['Character'].str.contains(entry[1]) & df['Series'].str.contains(entry[2]), 'Wishlist'] = entry[0]
     
-df.to_csv('datawl.csv')  
+df.to_csv('datawl.csv', index=False)  
