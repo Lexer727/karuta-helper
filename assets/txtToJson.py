@@ -1,5 +1,4 @@
 import json
-import os
 
 filename = 'wishlistv2.txt'
 
